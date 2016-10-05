@@ -1,0 +1,12 @@
+---
+- include: linux.yml
+  when: ansible_system == 'Linux'
+
+- name: copy authorized_keys
+  authorized_key: user="{{ user_username }}" key="{{ lookup('file', item) }}"
+  with_fileglob:
+    - '*.pub'
+  tags: [config, ssh]
+
+- include: macos.yml
+  when: ansible_system == 'Darwin'
