@@ -16,4 +16,5 @@ galaxy_info:
      - all
   categories:
      - system
-dependencies: []
+dependencies:
+  - wrboyce.dotfiles-zsh
